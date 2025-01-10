@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <p> Sem 3 Subject </p> -->
+    <!-- <ul type="circle">
+        <li>WADT2</li>
+        <ul type="disc">
+            <li>PHP</li>
+            <li>Advanced client..</li>
+            <li>Ajax</li>
+            <li>intro sequrity..</li>
+        </ul>
+        <li>DBMS</li>
+        <li>OOP</li>
+        <li>DMS</li>
+        <li>DSA</li>
+        <li>CSK 2</li>
+    </ul> -->
+
+    <!-- <table border="1px" width="100%">
+        <thead>
+            <tr >
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+                <td>8.00 AM - 10.00 AM </td>
+                <td> WEB</td>
+                <td> DMS</td>
+            </tr>
+            <tr> 
+                <td>10.00 AM - 12.00 PM </td>
+                <td> OOAD</td>
+                <td> DSA</td>
+            </tr>
+            <tr> 
+                <td>12.00 PM - 13.00 PM </td>
+                <th colspan="2"> Interval</th>
+            </tr>
+            <tr> 
+                <td>13.00 PM - 15.00 PM </td>
+                <td> DMS</td>
+                <td> WEB</td>
+            </tr>
+            <tr > 
+                <td>15.00 PM - 16.00 PM </td>
+                <td rowspan="2"> DSA</td>
+                <td rowspan="2"> OOAD</td>
+            </tr>
+
+            <tr > 
+                <td>16.00 PM - 17.00 PM </td>
+                
+            </tr>
+        </tbody>
+    </table> -->
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="display: block;">
+            <form action="processor.php" method="get">
+                <label>First Name :</label>
+                <input type="text" name="fname" value="Kamal">
+                </br></br>
+                <label>Last Name :</label>
+                <input type="text" name="lname">
+                </br></br>
+                <label>Address :</label>
+                <textarea name="address">No.123</textarea>
+                </br></br>
+                <label>Gender :</label>
+                <input type="radio" name="gebder" value="male" checked> Male
+                <input type="radio" name="gebder" value="female"> Female
+                </br></br>
+                <label>Module :</label>
+                <input type="checkbox" name="module[]" value="web" checked> WEB
+                <input type="checkbox" name="module[]" value="ooad"> OOAD
+                <input type="checkbox" name="module[]" value="dsa"> DSA
+                <input type="checkbox" name="module[]" value="dms"> DMS
+                <input type="checkbox" name="module[]" value="csk2"> CSK2
+                </br></br>
+                <label for="examCenter">Exam Center :</label>
+                <select name="center" id="examCenter" multiple>
+                    <option value="colombo">Colombo</option>
+                    <option value="kandy">Kandy</option>
+                    <option value="galle" selected>Galle</option>
+                    <option value="jafna">Jafna</option>
+                </select>
+                </br></br>
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

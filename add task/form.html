@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="textIn" placeholder="Enter text">
+    <input type="submit" value="Submit" onclick="addText()">
+    <button onclick="addText()">Add</button>
+    <ol id="dynmicList">
+
+    </ol>
+
+    <script>
+
+
+        function addText() {
+            console.log("hello");
+            
+            let text = document.getElementById("textIn").value;
+            let list = document.getElementById("dynmicList");
+            let li = document.createElement("li");
+            li.innerHTML = text;
+            list.appendChild(li);
+        }
+    </script>
+
+</body>
+
+</html>
