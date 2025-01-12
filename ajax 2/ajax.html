@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getData() {
+            alert("Hello");
+            var ajax = new XMLHttpRequest();
+
+            ajax.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    let data = JSON.parse(this.responseText);
+                    console.log(data[0]);
+                    data.forEach(ele => {
+                        let ul = document.getElementById("list");
+                        let li = document.createElement("li");
+                        li.innerHTML = ele.name + " and " + ele.age;
+                        ul.appendChild(li);
+                    });
+                    // document.getElementById("demo").innerHTML = this.responseText;
+                }
+            }
+
+            ajax.open("GET", "test.php", true);
+            ajax.send();
+        }
+    </script>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button onclick="getData()">Get Data</button>
+    <ul id="list">
+
+    </ul>
+</body>
+
+</html>
