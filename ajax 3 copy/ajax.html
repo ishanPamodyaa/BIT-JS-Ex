@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getData() {
+            alert("Hello");
+
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    console.log(this.responseText);
+                }
+
+            }
+
+            //GET type
+            // ajax.open("GET", 'getemployee.php?emptype=contractor&city=colo', true);
+            // ajax.send();
+
+            //POST type
+            ajax.open("POST", 'createemployee.php', true);
+            ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            ajax.send('emptype=contractor&city=colo');
+        }
+
+    </script>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button onclick="getData()">Get Data</button>
+    <ul id="list">
+
+    </ul>
+</body>
+
+</html>

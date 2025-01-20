@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getData() {
+            // alert("Hello");
+
+            let ajax = new XMLHttpRequest();
+
+            ajax.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let data = JSON.parse(this.responseText);
+
+                    data.forEach(element => {
+                        console.log(element);
+                        let li = document.createElement("li");
+                        li.innerHTML = element.id + " - " + element.name + " - " + element.age;
+                        document.getElementById("dataArea").appendChild(li);
+                    });
+                }
+
+            }
+
+            ajax.open("GET", "a.php", true);
+            ajax.send();
+        }
+    </script>
+
+</head>
+
+<body>
+    <button type="submit" onclick="getData()"> GET DATA</button>
+    <div>
+        <ul id="dataArea">
+
+        </ul>
+    </div>
+</body>
+
+</html>
