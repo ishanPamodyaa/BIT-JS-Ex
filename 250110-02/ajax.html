@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function saveData() {
+
+            let name = document.getElementById("txtName").value;
+            let nic = document.getElementById("txtNic").value;
+            let city = document.getElementById("txtCity").value;
+
+            let ajax = new XMLHttpRequest();
+
+            ajax.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("data save successfully");
+                }
+            }
+
+            //get data send
+            ajax.open("GET", "insert.php?name=" + name + "&nic=" + nic + "&city=" + city, true);
+            ajax.send();
+
+            //post data send
+            // ajax.open("POST", "insert.php", true);
+            // ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            // ajax.send("name=" + name + "&nic=" + nic + "&city=" + city);
+
+        }
+
+        function getData() {
+            alert("dsds");
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // document.write(this.responseText);
+                    let data = JSON.parse(this.responseText);
+                    console.log(data);
+
+
+
+                    let tableBody = document.getElementById('tBody');
+
+                    data.forEach(element => {
+
+                        console.log(element);
+
+                        let tr = document.createElement('tr');
+
+                        let tdId = document.createElement('td');
+                        tdId.innerHTML = element.id;
+
+                        let tdName = document.createElement('td');
+                        tdName.innerHTML = element.name;
+                        let tdNic = document.createElement('td');
+                        tdNic.innerHTML = element.nic;
+                        let tdCity = document.createElement('td');
+                        tdCity.innerHTML = element.city;
+
+
+                        tr.appendChild(tdId);
+                        tr.appendChild(tdName);
+                        tr.appendChild(tdNic);
+                        tr.appendChild(tdCity);
+
+                        tableBody.appendChild(tr);
+
+
+                    });
+
+                }
+            }
+
+
+            ajax.open("GET", "show.php", true);
+            ajax.send();
+
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <label>Name</label>
+    <input type="text" id="txtName"> <br /><br />
+    <label>NIC</label>
+    <input type="text" id="txtNic"> <br /><br />
+    <label>City</label>
+    <input type="text" id="txtCity"> <br /><br />
+    <br /><br />
+
+    <button id="btnSave" onclick="saveData()">Save to DB</button>
+    <br /><br />
+    <br /><br />
+    <button id="btnGetData" onclick="getData()">Get Data From DB</button>
+    <div>
+        <table id="dataTable" border="1" width="100%">
+            <thead id="tHead">
+                <td>ID</td>
+                <td>Name</td>
+                <td>NIC</td>
+                <td>City</td>
+            </thead>
+            <tbody id="tBody">
+                <!-- <tr id="rawData"> -->
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+
+
+</html>
